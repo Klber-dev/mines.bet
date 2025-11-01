@@ -34,7 +34,7 @@ if (!isset($_SESSION['usuario_id'])) {
         </div>
         <div class="main-content">
             <form>
-                <input></input>
+                <input placeholder="Insira o valor"></input>
             </form>
         </div>
     </div>
