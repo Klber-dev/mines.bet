@@ -3,9 +3,12 @@
 :root {
     --primary-color: #2A641C;
     --secondary-color: #52A535;
-    --font-color: #333333;
-    --background-color: #FFFFFF;
-    --background-cinza: #262423;
+    --danger-color: #8B0000;
+    --danger-hover: #c90000;
+    --font-color: #FFFFFF;
+    --background-dark: #1e1e1e;
+    --background-gray: #262423;
+    --background-sidebar: #1c1c1c;
     --font-primary: 'Minecrafter';
     --font-secondary: 'Minecraft';
 }
@@ -14,6 +17,7 @@ body {
     height: 100vh;
     overflow: hidden;
     font-family: var(--font-secondary);
+    background-color: var(--background-dark);
     color: white;
 }
 
@@ -36,15 +40,153 @@ h1, h2 {
     padding: 15px;
 }
 
-.btn-style {
-    background-color: var(--primary-color);
-    border: 3px solid #131111;
+.logo img {
+    width: 150px;
+}
+
+.btn-style,
+.btn-alt {
     padding: 10px 20px;
     text-align: center;
     margin-right: 20px;
-    box-shadow: inset 0px 4px 0px var(--secondary-color), 0px 0px 10px rgba(0, 0, 0, 0.25);
+    color: var(--font-color);
+    border: 3px solid #131111;
+    box-shadow: inset 0px 4px 0px, 0px 0px 10px rgba(0,0,0,0.25);
+    cursor: pointer;
+    font-family: var(--font-secondary);
 }
 
-form{
-    color:#131111
+.btn-style {
+    background-color: var(--primary-color);
+    box-shadow: inset 0px 4px 0px var(--secondary-color), 0 0 10px rgba(0,0,0,0.25);
+}
+
+.btn-alt {
+    background-color: var(--danger-color);
+    box-shadow: inset 0px 4px 0px var(--danger-hover), 0 0 10px rgba(0,0,0,0.25);
+}
+
+.main-container {
+    display: flex;
+    height: calc(100vh - 70px);
+}
+
+.side-bar {
+    width: 280px;
+    background-color: var(--background-sidebar);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.perfil-info {
+    text-align: center;
+}
+
+.perfil-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.saldo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-gray);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.menu-lateral a {
+    display: block;
+    padding: 10px 0;
+    color: var(--font-color);
+    text-decoration: none;
+    font-family: var(--font-secondary);
+    transition: color 0.3s;
+}
+
+.menu-lateral a:hover {
+    color: var(--secondary-color);
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.acoes input {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    margin-bottom: 15px;
+    font-size: large;
+    font-family: var(--font-secondary);
+    color: var(--font-color);
+    background-color: var(--background-gray);
+    border: 1px solid #898481;
+    box-shadow: inset 0px 2px 0px rgba(0,0,0,0.5);
+}
+
+input::placeholder {
+    color: #898481;
+    font-size: 10px;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+input:focus,
+input:valid {
+    outline: none;
+    border: 1px solid var(--secondary-color);
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.botoes button {
+    margin-right: 20px;
+    padding: 10px 20px;
+    font-family: var(--font-secondary);
+    border: none;
+    cursor: pointer;
+}
+
+.historico {
+    background-color: var(--background-sidebar);
+    padding: 15px;
+    border-radius: 5px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#historico {
+    font-size: 30px;
+    background-color: var(--background-gray);
+    border: 3px solid #131111;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    box-shadow: inset 0px 4px 0px #3a3735, 0 0 10px rgba(0,0,0,0.25);
+    color: var(--font-color);
+}
+
+.historico ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.historico li {
+    padding: 5px 0;
+    border-bottom: 1px solid #333;
 }

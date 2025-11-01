@@ -4,6 +4,7 @@ if (!isset($_SESSION['usuario_id'])) {
     header('Location: index.php');
     exit;
 }
+$usuario_id = $_SESSION['usuario_id'] ?? "User";
 ?>
 
 <!DOCTYPE html>
@@ -23,20 +24,43 @@ if (!isset($_SESSION['usuario_id'])) {
                 <a href="index.php"><img src="./assets/imagens/logo_minecraft.png" alt="Logo Mine"></a>
             </div>
             <nav>
-                <a href='mines.php' class="btn-style">Jogar</a>
+                <a href="mines.php" class="btn-style">Jogar</a>
             </nav>
         </div>
     </header>
 
     <div class="main-container">
-        <div class="side-bar">
+        <aside class="side-bar">
+            <div class="perfil-info">
+                <img src="./assets/imagens/perfil-placeholder.png" alt="Foto de Perfil" class="perfil-img">
+                <h3 id="usuario-nome">ID: <?= htmlspecialchars($usuario_id) ?></h3>
+            </div>
 
-        </div>
-        <div class="main-content">
-            <form>
-                <input placeholder="Insira o valor"></input>
+            <div class="saldo">
+                <span>Saldo: <a id="saldo">R$ 0,00</a></span>
+            </div>
+            
+            <form class="acoes">
+                <input type="number" placeholder="Insira o valor" id="valor-transacao">
+                <div class="botoes">
+                    <button type="button" class="btn-style">Depositar</button>
+                    <button type="button" class="btn-alt">Sacar</button>
+                </div>
             </form>
-        </div>
+        </aside>
+
+        <section class="main-content">
+
+            <div class="historico">
+                <div id="historico">
+                    <label>Historico de Transacoes:</label>
+                </div>
+                <ul id="lista-historico">
+                    <li>Teste</li>
+                    <li>Teste</li>
+                </ul>
+            </div>
+        </section>
     </div>
 </body>
 
