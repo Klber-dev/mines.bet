@@ -1,0 +1,237 @@
+@import url('./reset.css');
+
+:root {
+    --primary-color: #2A641C;
+    --secondary-color: #52A535;
+    --font-color: #333333;
+    --background-color: #FFFFFF;
+    --background-cinza: #262423;
+    --font-primary: 'Minecrafter';
+    --font-secondary: 'Minecraft';
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: var(--font-secondary);
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0,0,0,0.5)), url(./imagens/bg_homepage.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+h1, h2 {
+    font-family: var(--font-primary);
+}
+
+.logo img {
+    width: 150px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--background-cinza);
+    padding: 15px;
+}
+
+.main-container {
+    width: 1200px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: auto auto;
+}
+
+.main-container h1 {
+    font-size: 80px;
+    width: 60rem;
+    margin-bottom: 20px;
+}
+
+.main-container h1 span {
+    color: #52A535;
+    font-size: 100px;
+}
+
+.main-container p {
+    font-size: 30px;
+    width: 40rem;
+    margin-bottom: 30px;
+}
+
+.btn-style {
+    background-color: var(--primary-color);
+    border: 3px solid #131111;
+    padding: 10px 20px;
+    text-align: center;
+    margin-right: 20px;
+    box-shadow: inset 0px 4px 0px var(--secondary-color), 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.btn-button {
+    font-family: var(--font-secondary);
+    color: white;
+    font-size: 14px;
+    background-color: #3C8527;
+    border: 2px solid #262423;
+    box-shadow: inset 0px 4px 0px #52A535, inset 0px -4px 0px #2A641C, 0px 0px 10px rgba(0, 0, 0, 0.25);
+    padding: 8px 16px;
+    margin-bottom: 8px;
+}
+
+.btn-play {
+    font-family: var(--font-secondary);
+    color: white;
+    font-size: 35px;
+    background-color: #3C8527;
+    border: 2px solid #262423;
+    box-shadow: inset 0px 4px 0px #52A535, inset 0px -4px 0px #2A641C, 0px 0px 10px rgba(0, 0, 0, 0.25);
+    padding: 15px 30px;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.btn-play:hover {
+    background-color: #367723;
+}
+
+.btn-button:hover {
+    background-color: #367723;
+}
+
+#form-popup input {
+    color: white;
+    font-family: var(--font-secondary);
+    font-size: large;
+}
+
+.input-style {
+    background-color: #262423;
+    border: 1px solid #898481;
+    box-shadow: inset 0px 2px 0px rgba(0, 0, 0);
+    height: 40px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+input::placeholder {
+    color: #898481;
+    font-size: 10px;
+    text-transform: lowercase;
+    text-align: center;
+}
+
+input:focus, input:valid {
+    outline: none;
+    border: 1px solid var(--secondary-color);
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.bem-vindo {
+    font-family: var(--font-secondary);
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.bem-vindo img {
+    width: 30px;
+    margin-left: 10px;
+    position: relative;
+    top: -4px;
+}
+
+#pop-up {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#pop-up.ativo {
+    display: flex;
+    opacity: 1;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+#pop-up.saindo {
+    animation: fadeOut 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes popupZoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes popupZoomOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+}
+
+.popup-content {
+    background-color: var(--background-cinza);
+    width: 400px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    animation: popupZoomIn 0.25s ease forwards;
+}
+
+#pop-up.saindo .popup-content {
+    animation: popupZoomOut 0.25s ease forwards;
+}
+
+#conteudo.blur {
+    filter: blur(5px);
+    transition: filter 0.4s ease;
+}

@@ -1,0 +1,44 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+:root {
+  --primary-color: #2A641C;
+  --secondary-color: #52A535;
+  --font-color: #333333;
+  --background-color: #FFFFFF;
+  --background-cinza: #262423;
+  --font-primary: 'Minecrafter';
+  --font-secondary: 'Minecraft';
+}
+
+@font-face {
+  font-family: 'Minecrafter';
+  src: url(./assets/fonte/Minecrafter.Reg.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url(./assets/fonte/Minecraft.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
