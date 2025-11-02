@@ -58,12 +58,24 @@ h1, h2 {
 
 .btn-style {
     background-color: var(--primary-color);
-    box-shadow: inset 0px 4px 0px var(--secondary-color), 0 0 10px rgba(0,0,0,0.25);
+    border: 3px solid #131111;
+    padding: 10px 20px;
+    text-align: center;
+    margin-right: 20px;
+    box-shadow: inset 0px 4px 0px var(--secondary-color), 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
 
 .btn-alt {
     background-color: var(--danger-color);
     box-shadow: inset 0px 4px 0px var(--danger-hover), 0 0 10px rgba(0,0,0,0.25);
+}
+
+.btn-style:hover{
+    background-color: var(--secondary-color);
+}
+
+.btn-alt:hover{
+    background-color: var(--danger-hover);
 }
 
 .main-container {

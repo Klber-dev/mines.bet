@@ -39,12 +39,12 @@ $usuario_id = $_SESSION['usuario_id'] ?? "User";
             <div class="saldo">
                 <span>Saldo: <a id="saldo">R$ 0,00</a></span>
             </div>
-            
-            <form class="acoes">
-                <input type="number" placeholder="Insira o valor" id="valor-transacao">
+
+            <form class="acoes" method="post" action='saldo.php'>
+                <input type="number" placeholder="Insira o valor" id="valor-transacao" name="valor">
                 <div class="botoes">
-                    <button type="button" class="btn-style">Depositar</button>
-                    <button type="button" class="btn-alt">Sacar</button>
+                    <button type="submit" class="btn-style" name="action" value="depositar">Depositar</button>
+                    <button type="submit" class="btn-alt" name="action" value="sacar">Sacar</button>
                 </div>
             </form>
         </aside>
@@ -63,5 +63,4 @@ $usuario_id = $_SESSION['usuario_id'] ?? "User";
         </section>
     </div>
 </body>
-
 </html>

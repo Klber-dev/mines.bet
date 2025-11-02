@@ -1,7 +1,7 @@
 //Tentativa (talvez equivocada) de explicar a função desse script:
 // 1 - Tem funções pra mostrar ou esconder o popup de login
 // 2 - Faz requisições fetch pra verificar se o usuário ta logado ou não
-// 3 - Atualiza o header do cabeçalho baseado nisso ^^
+// 3 - Atualiza o header do cabeçalho baseado nisso ^
 
 const btnJogar = document.querySelector('.btn-play');
 const btnLogin = document.querySelector('.btn-login');

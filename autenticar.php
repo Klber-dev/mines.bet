@@ -1,8 +1,6 @@
 <?php
 session_start();
-//Limpa o buffer pra caso eu já tenha gerado alguma saída antes ( sinceramente n sei se precisa disso tanto assim)
 ob_clean();
-//Aqui eu to fazendo o php 'retornar' as coisas em formato json em vez de html, pra que eu possa usar esses dados no javascript
 header('Content-Type: application/json');
 
 $arquivo = 'usuarios.json';
