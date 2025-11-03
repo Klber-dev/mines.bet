@@ -5,7 +5,6 @@ header('Content-Type: application/json');
 
 $arquivo = 'usuarios.json';
 $usuarios = file_exists($arquivo) ? json_decode(file_get_contents($arquivo), true) : [];
-if (!is_array($usuarios)) $usuarios = [];
 
 $cpf = $_POST['cpf'] ?? '';
 $password = $_POST['password'] ?? '';
@@ -40,7 +39,8 @@ if ($action === 'cadastrar') {
             'id' => count($usuarios) + 1,
             'cpf' => $cpf,
             'password' => md5($password),
-            'saldo' => 0.0
+            'saldo' => 0.0,
+            'historico' => []
         ];
         $usuarios[] = $novoUsuario;
         file_put_contents($arquivo, json_encode($usuarios, JSON_PRETTY_PRINT));

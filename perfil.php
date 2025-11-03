@@ -5,6 +5,17 @@ if (!isset($_SESSION['usuario_id'])) {
     exit;
 }
 $usuario_id = $_SESSION['usuario_id'] ?? "User";
+$arquivo = 'usuarios.json';
+$usuarios = file_exists($arquivo) ? json_decode(file_get_contents($arquivo), true) : [];
+$usuarioAtual = null;
+
+foreach ($usuarios as $usuario) {
+    if ($usuario['id'] === $usuario_id) {
+        $usuario_atual = $usuario;
+        break;
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -33,15 +44,18 @@ $usuario_id = $_SESSION['usuario_id'] ?? "User";
         <aside class="side-bar">
             <div class="perfil-info">
                 <img src="./assets/imagens/perfil-placeholder.png" alt="Foto de Perfil" class="perfil-img">
-                <h3 id="usuario-nome">ID: <?= htmlspecialchars($usuario_id) ?></h3>
+                <h3 id="usuario-nome">ID: <?= ($usuario_id) ?></h3>
             </div>
 
             <div class="saldo">
-                <span>Saldo: <a id="saldo">R$ 0,00</a></span>
+                <span>Saldo: <a id="saldo"><?= number_format($usuario_atual['saldo'], 2, ',', '.') ?> </a></span>
             </div>
 
             <form class="acoes" method="post" action='saldo.php'>
-                <input type="number" placeholder="Insira o valor" id="valor-transacao" name="valor">
+                <?php if (isset($_GET['erro']) && $_GET['erro'] == 1): ?>
+                    <p style="color:#c90000; margin-left:20%">Saldo insuficiente</p>
+                <?php endif; ?>
+                <input type="number" placeholder="Insira o valor" id="valor-transacao" name="valor" required>
                 <div class="botoes">
                     <button type="submit" class="btn-style" name="action" value="depositar">Depositar</button>
                     <button type="submit" class="btn-alt" name="action" value="sacar">Sacar</button>
@@ -55,12 +69,20 @@ $usuario_id = $_SESSION['usuario_id'] ?? "User";
                 <div id="historico">
                     <label>Historico de Transacoes:</label>
                 </div>
-                <ul id="lista-historico">
-                    <li>Teste</li>
-                    <li>Teste</li>
-                </ul>
+                <?php
+                if (!empty($usuario_atual['historico'])) {
+                    foreach ($usuario_atual['historico'] as $item) {
+                        if (stripos($item, 'deposito') !== false) $cor = 'green';
+                        if (stripos($item, 'sacou') !== false) $cor = 'red';
+                        echo '<li style="color:' . $cor . ';">' . ($item) . '</li>';
+                    }
+                } else {
+                    echo '<li>Nenhuma transação ainda</li>';
+                }
+                ?>
             </div>
         </section>
     </div>
 </body>
+
 </html>

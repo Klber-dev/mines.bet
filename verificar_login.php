@@ -7,5 +7,3 @@ if(isset($_SESSION['usuario_id'])){
 }else{
     echo json_encode(['logado' => false]);
 }
-
-//Ta ai o responsável por dizer pro js se o usuário ta logado ou não
