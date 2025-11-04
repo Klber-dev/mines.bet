@@ -1,0 +1,64 @@
+body {
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.crafting-container {
+  background-color: #2b1b0f;
+  padding: 24px;
+  border: 8px solid #000;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.crafting-border {
+  background: linear-gradient(135deg, #8b5a2b 20%, #b97a3c 50%, #8b5a2b 80%);
+  padding: 24px;
+  border: 8px solid #000;
+}
+
+.crafting-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 128px);
+  grid-template-rows: repeat(3, 128px);
+  gap: 12px;
+  background-color: #2b1b0f;
+  border: 6px solid #000;
+}
+
+.slot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+  background: linear-gradient(145deg, #b47840, #8f5d2d);
+  border: 6px solid #2b1b0f;
+  box-shadow: inset 4px 4px 0 #d6a06a, inset -4px -4px 0 #4b2b12;
+  transition: 0.15s;
+  user-select: none;
+}
+
+.slot:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+button {
+  background: #b97a3c;
+  border: 3px solid #000;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #fff;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #d58b42;
+}
