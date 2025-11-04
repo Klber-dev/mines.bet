@@ -44,7 +44,7 @@ foreach ($usuarios as $usuario) {
         <aside class="side-bar">
             <div class="perfil-info">
                 <img src="./assets/imagens/perfil-placeholder.png" alt="Foto de Perfil" class="perfil-img">
-                <h3 id="usuario-nome">ID: <?= ($usuario_id) ?></h3>
+                <h3 id="usuario-nome"><?= ($usuario_id) ?></h3>
             </div>
 
             <div class="saldo">
@@ -61,6 +61,12 @@ foreach ($usuarios as $usuario) {
                     <button type="submit" class="btn-alt" name="action" value="sacar">Sacar</button>
                 </div>
             </form>
+            <div class="logout-btn">
+                <form method="post" action="usuario_logout.php" onsubmit="return confirm('Está certo disso?');">
+                    <button type="submit" class="btn-style" name="action" value="logout">Log-out</button>
+                    <button type="submit" class="btn-style" name="action" value="excluir">Excluir conta</button>
+                </form>
+            </div>
         </aside>
 
         <section class="main-content">

@@ -30,12 +30,12 @@ foreach ($usuarios as &$usuario) {
         }
 
         if ($action === 'sacar') {
-            if ($usuario['saldo'] >= $valor && $usuario['saldo'] > 0) {
+            if ($usuario['saldo'] < $valor || $usuario['saldo'] < 0 || $valor == 0) {
+                $erro = 1;
+            } else {
                 $usuario['saldo'] -= $valor;
                 $usuario['historico'][] = "Sacou RS$" . number_format($valor, 2, ',', '.');
                 $sucesso = true;
-            } else {
-                $erro = 1;
             }
         }
 

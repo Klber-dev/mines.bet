@@ -1,11 +1,11 @@
 <?php
 session_start();
-ob_clean();
 header('Content-Type: application/json');
 
 $arquivo = 'usuarios.json';
 $usuarios = file_exists($arquivo) ? json_decode(file_get_contents($arquivo), true) : [];
 
+$nome = $_POST['nome'] ?? '';
 $cpf = $_POST['cpf'] ?? '';
 $password = $_POST['password'] ?? '';
 $action = $_POST['action'] ?? '';
@@ -36,7 +36,7 @@ if ($action === 'cadastrar') {
         echo json_encode(['success' => false, 'msg' => 'Usuário já existe!']);
     } else {
         $novoUsuario = [
-            'id' => count($usuarios) + 1,
+            'id' => $nome,
             'cpf' => $cpf,
             'password' => md5($password),
             'saldo' => 0.0,

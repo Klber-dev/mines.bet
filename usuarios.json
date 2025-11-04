@@ -1,16 +1,9 @@
 [
     {
-        "id": 1,
-        "cpf": "56595171880",
+        "id": "Usario teste",
+        "cpf": "3333333333333",
         "password": "81dc9bdb52d04dc20036dbd8313ed055",
-        "saldo": 240,
-        "historico": [
-            "Depositou RS$10,00",
-            "Depositou RS$350,00",
-            "Sacou RS$360,00",
-            "Depositou RS$190,00",
-            "Depositou RS$200,00",
-            "Sacou RS$150,00"
-        ]
+        "saldo": 0,
+        "historico": []
     }
 ]

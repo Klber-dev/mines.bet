@@ -81,7 +81,7 @@ formPopup.addEventListener('submit', async (e) => {
       alert(data.msg);
       return;
     }
-    
+
     atualizarHeader();
     fecharPopup();
 
