@@ -44,7 +44,7 @@ foreach ($usuarios as $usuario) {
         <aside class="side-bar">
             <div class="perfil-info">
                 <img src="./assets/imagens/perfil-placeholder.png" alt="Foto de Perfil" class="perfil-img">
-                <h3 id="usuario-nome"><?= ($usuario_id) ?></h3>
+                <h3 id="usuario-nome">ID: <?= ($usuario_id) ?></h3>
             </div>
 
             <div class="saldo">

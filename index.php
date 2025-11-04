@@ -33,10 +33,7 @@
 
     <form id="form-popup" class="popup-content">
       <span class="bem-vindo">Bem-Vindo <img src="./assets/imagens/creeper-icon.jpg" alt="picareta mine"></span>
-      
-      <label for="nome">Nome:</label>
-      <input class="input-style" type="text" id="nome" placeholder="insira seu nome" name="nome" required>
-
+  
       <label for="cpf">CPF:</label>
       <input class="input-style" type="number" id="cpf" placeholder="insira o CPF" name="cpf" required>
 
