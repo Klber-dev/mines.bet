@@ -13,75 +13,80 @@
     --font-secondary: 'Minecraft';
 }
 
+
 body {
     height: 100vh;
-    overflow: hidden;
     font-family: var(--font-secondary);
     background-color: var(--background-dark);
     color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-h1, h2 {
-    font-family: var(--font-primary);
-}
-
-.logo img {
-    width: 150px;
-}
 
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     min-width: 100%;
-    top: 0;
-    left: 0;
     background-color: var(--background-cinza);
-    padding: 15px;
+    padding: 15px 30px;
+    flex-wrap: wrap;
 }
 
 .logo img {
-    width: 150px;
+    width: 120px;
+    max-width: 100%;
 }
+
+.header-buttons a {
+    text-decoration: none;
+}
+
 
 .btn-style,
 .btn-alt {
     padding: 10px 20px;
     text-align: center;
-    margin-right: 20px;
-    color: var(--font-color);
+    color: #FFFFFF;
     border: 3px solid #131111;
-    box-shadow: inset 0px 4px 0px, 0px 0px 10px rgba(0,0,0,0.25);
+    box-shadow: inset 0px 4px 0px, 0px 0px 10px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     font-family: var(--font-secondary);
+    transition: all 0.2s ease-in-out;
 }
 
 .btn-style {
     background-color: var(--primary-color);
-    border: 3px solid #131111;
-    padding: 10px 20px;
-    text-align: center;
-    margin-right: 20px;
     box-shadow: inset 0px 4px 0px var(--secondary-color), 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.btn-style:hover {
+    background-color: #367723;
+    box-shadow: inset 0px 2px 0px #245316, inset 0px -2px 0px #52A535, 0px 0px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(1px);
 }
 
 .btn-alt {
     background-color: var(--danger-color);
-    box-shadow: inset 0px 4px 0px var(--danger-hover), 0 0 10px rgba(0,0,0,0.25);
+    box-shadow: inset 0px 4px 0px var(--danger-hover), 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-.btn-style:hover{
-    background-color: var(--secondary-color);
+.btn-alt:hover {
+    background-color: var(--danger-color);
+    box-shadow: inset 0px 2px 0px #6e0000, inset 0px -2px 0px #ad0000, 0px 0px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(1px);
 }
 
-.btn-alt:hover{
-    background-color: var(--danger-hover);
-}
 
 .main-container {
     display: flex;
+    flex: 1;
     height: calc(100vh - 70px);
+    overflow: hidden;
 }
+
 
 .side-bar {
     width: 280px;
@@ -90,6 +95,7 @@ h1, h2 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    border-right: 3px solid #131111;
 }
 
 .perfil-info {
@@ -101,36 +107,18 @@ h1, h2 {
     height: 100px;
     border-radius: 50%;
     margin-bottom: 10px;
+    border: 2px solid var(--secondary-color);
 }
 
+
 .saldo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: var(--background-gray);
     padding: 10px;
     border-radius: 5px;
-}
-
-.menu-lateral a {
-    display: block;
-    padding: 10px 0;
-    color: var(--font-color);
-    text-decoration: none;
-    font-family: var(--font-secondary);
-    transition: color 0.3s;
-}
-
-.menu-lateral a:hover {
-    color: var(--secondary-color);
-}
-
-.main-content {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #333;
+    box-shadow: inset 0px 2px 0px rgba(0, 0, 0, 0.5);
 }
 
 .acoes input {
@@ -138,58 +126,58 @@ h1, h2 {
     height: 40px;
     padding: 0 10px;
     margin-bottom: 15px;
-    font-size: large;
+    font-size: 14px;
+    color: #FFFFFF;
     font-family: var(--font-secondary);
-    color: var(--font-color);
     background-color: var(--background-gray);
     border: 1px solid #898481;
-    box-shadow: inset 0px 2px 0px rgba(0,0,0,0.5);
+    box-shadow: inset 0px 2px 0px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
 input::placeholder {
     color: #898481;
-    font-size: 10px;
-    text-align: center;
     text-transform: lowercase;
 }
 
-input:focus,
-input:valid {
+input:focus {
     outline: none;
     border: 1px solid var(--secondary-color);
 }
 
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.botoes {
+    display: flex;
+    justify-content: space-between;
 }
 
 .botoes button {
-    margin-right: 20px;
-    padding: 10px 20px;
-    font-family: var(--font-secondary);
-    border: none;
-    cursor: pointer;
+    flex: 1;
+    margin: 0 5px;
+}
+
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
 }
 
 .historico {
     background-color: var(--background-sidebar);
-    padding: 15px;
+    padding: 20px;
     border-radius: 5px;
-    max-height: 400px;
-    overflow-y: auto;
+    border: 2px solid #131111;
+    box-shadow: inset 0px 3px 0px #3a3735, 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 #historico {
-    font-size: 30px;
-    background-color: var(--background-gray);
-    border: 3px solid #131111;
-    padding: 10px;
+    font-size: 24px;
     text-align: center;
+    background-color: var(--background-gray);
+    padding: 10px;
+    border: 3px solid #131111;
     margin-bottom: 10px;
-    box-shadow: inset 0px 4px 0px #3a3735, 0 0 10px rgba(0,0,0,0.25);
-    color: var(--font-color);
+    box-shadow: inset 0px 4px 0px #3a3735;
 }
 
 .historico ul {
@@ -199,6 +187,77 @@ input::-webkit-outer-spin-button {
 }
 
 .historico li {
-    padding: 5px 0;
+    padding: 8px 10px;
     border-bottom: 1px solid #333;
+    transition: 0.2s;
+}
+
+.historico li:hover {
+    background-color: #2c2a29;
+}
+
+
+.logout-btn {
+    margin-top: auto;
+}
+
+.logout-btn form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.logout-btn button {
+    background-color: #333;
+    border: 2px solid #000;
+    color: #FFFFFF;
+    font-family: var(--font-secondary);
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logout-btn button:hover {
+    background-color: #444;
+    box-shadow: inset 0px 2px 0px #333, inset 0px -2px 0px #444, 0px 0px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(1px);
+}
+
+.logout-btn button[value="excluir"]:hover {
+    background-color: var(--danger-color);
+    box-shadow: inset 0px 2px 0px #6e0000, inset 0px -2px 0px #ad0000, 0px 0px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(1px);
+}
+
+
+.erro-msg {
+    color: var(--danger-hover);
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .side-bar {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .botoes {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
