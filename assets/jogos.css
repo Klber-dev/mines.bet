@@ -1,0 +1,61 @@
+@import url('./reset.css');
+
+:root {
+    --primary-color: #2A641C;
+    --secondary-color: #52A535;
+    --font-color: #333333;
+    --background-color: #FFFFFF;
+    --background-cinza: #262423;
+    --font-primary: 'Minecrafter';
+    --font-secondary: 'Minecraft';
+}
+
+body {
+    height: 100vh;
+    font-family: var(--font-secondary);
+    color: white;
+
+}
+
+.logo img {
+    width: 120px;
+    max-width: 100%;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100%;
+    background-color: var(--background-cinza);
+    padding: 15px 30px;
+    flex-wrap: wrap;
+}
+
+.jogos-container {
+    max-width: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 50px auto;
+    padding: 0 10px;
+    color: #000;
+    
+}
+
+.jogo-link {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+
