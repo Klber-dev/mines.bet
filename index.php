@@ -25,7 +25,7 @@
     <main class="main-container">
       <h1>Desafie a sorte no <br><span>campo minado</span></h1>
       <p>Encontre os diamantes e evite as minas para multiplicar seu saldo.</p>
-      <a href="mines.php" class="btn-play">Jogar Agora</a>
+      <a href="jogos.php" class="btn-play">Jogar Agora</a>
     </main>
   </div>
 
