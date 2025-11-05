@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CraftingLucky 🎰</title>
-  <link rel="stylesheet" href="jackpot.css">
+  <link href="./assets/jackpot.css" rel="stylesheet">
   <script src="jackpot.js" defer></script>
 </head>
 <body>
