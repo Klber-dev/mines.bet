@@ -12,21 +12,18 @@
 
 body {
     height: 100vh;
-    overflow: hidden;
     font-family: var(--font-secondary);
     color: white;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0,0,0,0.5)), url(./imagens/bg_homepage.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
-
-h1, h2 {
-    font-family: var(--font-primary);
+    overflow-x: hidden;
 }
 
 .logo img {
-    width: 150px;
+    width: 120px;
+    max-width: 100%;
 }
 
 .header-container {
@@ -34,37 +31,38 @@ h1, h2 {
     align-items: center;
     justify-content: space-between;
     min-width: 100%;
-    top: 0;
-    left: 0;
     background-color: var(--background-cinza);
-    padding: 15px;
+    padding: 15px 30px;
+    flex-wrap: wrap;
 }
 
 .main-container {
-    width: 1200px;
-    height: 600px;
+    max-width: 90%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin: auto auto;
+    margin: 50px auto;
+    padding: 0 10px;
 }
 
 .main-container h1 {
-    font-size: 80px;
-    width: 60rem;
+    font-family: var(--font-primary);
+    font-size: clamp(40px, 8vw, 80px);
     margin-bottom: 20px;
+    line-height: 1.1;
 }
 
 .main-container h1 span {
-    color: #52A535;
-    font-size: 100px;
+    color: var(--secondary-color);
+    font-size: clamp(50px, 10vw, 100px);
 }
 
 .main-container p {
-    font-size: 30px;
-    width: 40rem;
+    font-size: clamp(16px, 2.5vw, 30px);
+    max-width: 700px;
     margin-bottom: 30px;
 }
 
@@ -77,42 +75,52 @@ h1, h2 {
     box-shadow: inset 0px 4px 0px var(--secondary-color), 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
 
-.btn-button {
-    font-family: var(--font-secondary);
-    color: white;
-    font-size: 14px;
-    background-color: #3C8527;
-    border: 2px solid #262423;
-    box-shadow: inset 0px 4px 0px #52A535, inset 0px -4px 0px #2A641C, 0px 0px 10px rgba(0, 0, 0, 0.25);
-    padding: 8px 16px;
-    margin-bottom: 8px;
-}
-
+.btn-style,
+.btn-button,
 .btn-play {
     font-family: var(--font-secondary);
     color: white;
-    font-size: 35px;
-    background-color: #3C8527;
     border: 2px solid #262423;
-    box-shadow: inset 0px 4px 0px #52A535, inset 0px -4px 0px #2A641C, 0px 0px 10px rgba(0, 0, 0, 0.25);
-    padding: 15px 30px;
-    display: block;
+    box-shadow: inset 0px 4px 0px var(--secondary-color), inset 0px -4px 0px #2A641C, 0px 0px 10px rgba(0, 0, 0, 0.25);
     text-align: center;
-    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-.btn-play:hover {
-    background-color: #367723;
+.btn-style {
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+}
+
+.btn-button {
+    background-color: #3C8527;
+    font-size: 14px;
+    padding: 10px 16px;
+    margin-bottom: 10px;
+}
+
+.btn-play {
+    background-color: #3C8527;
+    font-size: clamp(22px, 4vw, 35px);
+    padding: 15px 30px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.btn-play:hover{
+  background-color: #4FAF33;
+  box-shadow: inset 0px 4px 0px #6BDF48, inset 0px -4px 0px #367723, 0px 0px 15px rgba(82, 165, 53, 0.6);
+  transform: scale(1.03);
+}
+
+.btn-style:hover {
+  background-color: #367723; 
+  box-shadow: inset 0px 2px 0px #245316, inset 0px -2px 0px #52A535, 0px 0px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(1px); 
 }
 
 .btn-button:hover {
     background-color: #367723;
-}
-
-#form-popup input {
-    color: white;
-    font-family: var(--font-secondary);
-    font-size: large;
 }
 
 .input-style {
@@ -122,40 +130,26 @@ h1, h2 {
     height: 40px;
     margin-bottom: 15px;
     padding: 0 10px;
+    color: white;
+    font-family: var(--font-secondary);
+    font-size: large;
 }
 
 input::placeholder {
     color: #898481;
-    font-size: 10px;
-    text-transform: lowercase;
+    font-size: 12px;
     text-align: center;
 }
 
-input:focus, input:valid {
+input:focus {
     outline: none;
     border: 1px solid var(--secondary-color);
 }
 
-input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
-
-.bem-vindo {
-    font-family: var(--font-secondary);
-    font-size: 30px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.bem-vindo img {
-    width: 30px;
-    margin-left: 10px;
-    position: relative;
-    top: -4px;
 }
 
 #pop-up {
@@ -183,41 +177,10 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
     animation: fadeOut 0.25s ease forwards;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
-
-@keyframes popupZoomIn {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes popupZoomOut {
-    from {
-        transform: scale(1);
-        opacity: 1;
-    }
-    to {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-}
-
 .popup-content {
     background-color: var(--background-cinza);
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
@@ -231,7 +194,83 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
     animation: popupZoomOut 0.25s ease forwards;
 }
 
+.bem-vindo {
+    font-family: var(--font-secondary);
+    font-size: 24px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-bottom: 20px;
+}
+
+.bem-vindo img {
+    width: 25px;
+    margin-left: 8px;
+    position: relative;
+    top: -3px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes popupZoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes popupZoomOut {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(0.9); opacity: 0; }
+}
+
 #conteudo.blur {
     filter: blur(5px);
     transition: filter 0.4s ease;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    .main-container {
+        margin: 30px auto;
+    }
+
+    .main-container p {
+        width: 90%;
+    }
+
+    .btn-play {
+        width: 80%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container h1 {
+        font-size: clamp(28px, 10vw, 45px);
+    }
+
+    .main-container h1 span {
+        font-size: clamp(36px, 12vw, 60px);
+    }
+
+    .popup-content {
+        padding: 20px 15px;
+    }
+
+    .bem-vindo {
+        font-size: 20px;
+    }
 }
