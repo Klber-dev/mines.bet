@@ -49,7 +49,7 @@ btnJogar.addEventListener('click', async (e) => {
     const res = await fetch('verificar_login.php');
     const data = await res.json();
     if (data.logado) {
-      window.location.href = 'mines.php';
+      window.location.href = 'jogos.php';
     } else {
       abrirPopup();
     }
@@ -64,6 +64,17 @@ btnLogin.addEventListener('click', (e) => {
   e.preventDefault();
   abrirPopup();
 });
+
+
+// Adicionar sfx no futuro maybe:
+/* const botoes = document.querySelectorAll('.btn-style, .btn-play');
+botoes.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const clickSound = new Audio('./assets/sounds/click.mp3'); // coloque um som estilo botão do jogo
+    clickSound.volume = 0.3;
+    clickSound.play();
+  });
+}); */
 
 
 formPopup.addEventListener('submit', async (e) => {
@@ -86,7 +97,7 @@ formPopup.addEventListener('submit', async (e) => {
     fecharPopup();
 
     if (clickedButton.value === 'jogar') {
-      window.location.href = 'mines.php';
+      window.location.href = 'jogos.php';
       return;
     }
 
