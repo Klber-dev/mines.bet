@@ -1,0 +1,83 @@
+@import url('./reset.css');
+
+:root {
+    --primary: #2a641c;
+    --secondary: #52a535;
+    --gray-bg: #262423;
+    --cell-bg: #333;
+    --cell-hover: #444;
+    --bomba: #e74c3c;
+    --diamante: #27ae60;
+}
+
+body {
+    background: #000;
+    color: white;
+    font-family: 'Minecraft', sans-serif;
+    text-align: center;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: var(--gray-bg);
+}
+
+.logo img {
+    width: 120px;
+}
+
+.aposta {
+    margin-top: 30px;
+}
+
+.input-style,
+.btn-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn-button {
+    background-color: var(--secondary);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-button:hover {
+    background-color: var(--primary);
+}
+
+.campo {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.celula {
+    width: 100px;
+    height: 100px;
+    background: var(--cell-bg);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.celula:hover {
+    background: var(--cell-hover);
+}
+
+.celula.bomba {
+    background: var(--bomba);
+}
+
+.celula.diamante {
+    background: var(--diamante);
+}
