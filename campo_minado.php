@@ -1,12 +1,11 @@
 <?php
 session_start();
 
-// simulação de usuário logado (remova e use seu sistema real)
 if (!isset($_SESSION['usuario_id'])) {
-    $_SESSION['usuario_id'] = 323601;
+    header('Location: index.php');
+    exit;
 }
 
-// lê saldo atual do JSON
 $usuarios = json_decode(file_get_contents('usuarios.json'), true);
 $usuario = null;
 foreach ($usuarios as $u) {
@@ -14,9 +13,6 @@ foreach ($usuarios as $u) {
         $usuario = $u;
         break;
     }
-}
-if (!$usuario) {
-    die("Usuário não encontrado.");
 }
 ?>
 <!DOCTYPE html>
@@ -37,31 +33,47 @@ if (!$usuario) {
                 <img src="./assets/imagens/logo_minecraft.png" alt="Logo Mine">
             </a>
         </div>
-        <div class="header-info">
-            <p id="saldo">Saldo: R$</p>
-        </div>
         <div class="header-buttons">
             <a href="perfil.php" class="btn-style" id="btn-perfil">Meu Perfil</a>
         </div>
     </header>
 
     <main>
-        <section class="aposta">
-            <form class="aposta-form" id="form-jogo">
-                <label for="aposta">Valor da aposta:</label>
-                <input class="input-style" type="number" id="aposta" placeholder="Insira um valor" name="aposta" required>
+        <div class="parent">
 
-                <label for="bombas">Quantia de bombas (3 a 8):</label>
-                <input class="input-style" type="number" id="bombas" placeholder="Ex: 3" name="bombas" min="3" max="8" required>
+            <div class="side-bar">
+                <div class="lance">
+                    <p>Aposta:</p>
+                    <input type="number" id="valorAposta" name="valorAposta" placeholder="Digite um valor" required>
+                </div>
 
-                <button class="btn-button" type="submit">Jogar</button>
-            </form>
+                <div class="bomb-slider">
+                    <p>Quantidade de Bombas: <span id="valor-bombas">3</span></p>
+                    <input type="range" min="3" max="8" value="3" id="rangeBombas" name="bombas">
+                    <p>Multiplicador: <span id="multiplicador">x1.00</span></p>
+                </div>
 
-            <p id="multiplicador">Multiplicador: x1.00</p>
-            <button id="btn-sacar" class="btn-button" disabled>Sacar</button>
-        </section>
+                <div class="acoes">
+                    <button id="btn-apostar" class="btn-action">Apostar</button>
+                    <button id="btn-sacar" class="btn-action" disabled>Sacar</button>
+                </div>
+            </div>
 
-        <section class="campo"></section>
+            <div class="campo-minado">
+                <div class="grid campo">
+                    <?php for ($i = 0; $i < 9; $i++): ?>
+                        <div class="cell" data-index="<?= $i ?>"></div>
+                    <?php endfor; ?>
+                </div>
+                <div id="overlayResultado" class="overlay-resultado hidden">
+                    <div class="mensagem"></div>
+                </div>
+            </div>
+
+            <div class="saldo">
+                Saldo atual: R$ <span id="saldo"><?php echo number_format($usuario['saldo'], 2, ',', '.'); ?></span>
+            </div>
+        </div>
     </main>
 
     <script src="campo_minado.js"></script>
