@@ -13,17 +13,12 @@
 
     <div class="crafting-border">
       <div class="crafting-grid">
-        <!-- Linha de cima -->
         <div class="slot"></div>
         <div class="slot"></div>
         <div class="slot"></div>
-
-        <!-- Linha do meio (será atualizada pelo JS) -->
         <div class="slot" id="slot1">❔</div>
         <div class="slot" id="slot2">❔</div>
         <div class="slot" id="slot3">❔</div>
-
-        <!-- Linha de baixo -->
         <div class="slot"></div>
         <div class="slot"></div>
         <div class="slot"></div>

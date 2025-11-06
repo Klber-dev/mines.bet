@@ -1,6 +1,9 @@
 <?php
-$premios = ["imagens/diamante.png", "🥮", "🍒", "🍇", "🔔", "🍀", "💰", "⭐", "🎁"];
-shuffle($premios);
-$resultado = array_slice($premios, 0, 3);
+$simbolos = ["💎", "🥮", "🍒", "🍇", "🔔"];
+$resultado = [
+    $simbolos[array_rand($simbolos)],
+    $simbolos[array_rand($simbolos)],
+    $simbolos[array_rand($simbolos)]
+];
 echo json_encode($resultado);
 ?>
