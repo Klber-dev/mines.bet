@@ -1,9 +1,22 @@
 <?php
 session_start();
 
+// simulação de usuário logado (remova e use seu sistema real)
 if (!isset($_SESSION['usuario_id'])) {
-    header('Location: index.php');
-    exit;
+    $_SESSION['usuario_id'] = 323601;
+}
+
+// lê saldo atual do JSON
+$usuarios = json_decode(file_get_contents('usuarios.json'), true);
+$usuario = null;
+foreach ($usuarios as $u) {
+    if ($u['id'] == $_SESSION['usuario_id']) {
+        $usuario = $u;
+        break;
+    }
+}
+if (!$usuario) {
+    die("Usuário não encontrado.");
 }
 ?>
 <!DOCTYPE html>
@@ -24,6 +37,9 @@ if (!isset($_SESSION['usuario_id'])) {
                 <img src="./assets/imagens/logo_minecraft.png" alt="Logo Mine">
             </a>
         </div>
+        <div class="header-info">
+            <p id="saldo">Saldo: R$</p>
+        </div>
         <div class="header-buttons">
             <a href="perfil.php" class="btn-style" id="btn-perfil">Meu Perfil</a>
         </div>
@@ -40,6 +56,9 @@ if (!isset($_SESSION['usuario_id'])) {
 
                 <button class="btn-button" type="submit">Jogar</button>
             </form>
+
+            <p id="multiplicador">Multiplicador: x1.00</p>
+            <button id="btn-sacar" class="btn-button" disabled>Sacar</button>
         </section>
 
         <section class="campo"></section>
