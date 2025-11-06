@@ -22,6 +22,11 @@ body {
     max-width: 100%;
 }
 
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+
 .header-container {
     display: flex;
     align-items: center;
