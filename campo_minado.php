@@ -50,7 +50,7 @@ foreach ($usuarios as $u) {
                 <div class="bomb-slider">
                     <p>Quantidade de Bombas: <span id="valor-bombas">3</span></p>
                     <input type="range" min="3" max="8" value="3" id="rangeBombas" name="bombas">
-                    <p>Multiplicador: <span id="multiplicador">x1.00</span></p>
+                    <p>Multiplicador: <span id="multiplicador">x3.90</span></p>
                 </div>
 
                 <div class="acoes">
