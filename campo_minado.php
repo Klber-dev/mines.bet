@@ -55,7 +55,6 @@ foreach ($usuarios as $u) {
 
                 <div class="acoes">
                     <button id="btn-apostar" class="btn-action">Apostar</button>
-                    <button id="btn-sacar" class="btn-action" disabled>Sacar</button>
                 </div>
             </div>
 
