@@ -107,3 +107,5 @@ if ($action === 'jogo') {
 } else {
     header('Location: perfil.php?erro=4');
 }
+
+//Se vc n entender bulhufas pergunta pro oráculo
