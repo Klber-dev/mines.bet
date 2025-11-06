@@ -40,6 +40,11 @@ body {
     max-width: 100%;
 }
 
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+
 .header-buttons a {
     text-decoration: none;
 }

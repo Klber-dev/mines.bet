@@ -14,7 +14,7 @@ body {
     height: 100vh;
     font-family: var(--font-secondary);
     color: white;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0,0,0,0.5)), url(./imagens/bg_homepage.jpeg);
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url(./imagens/bg_homepage.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -25,6 +25,11 @@ body {
     width: 120px;
     max-width: 100%;
 }
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
 
 .header-container {
     display: flex;
@@ -80,7 +85,7 @@ body {
 .btn-play {
     font-family: var(--font-secondary);
     color: white;
-    border: 2px solid #262423;
+    border: 3px solid #131111;
     box-shadow: inset 0px 4px 0px var(--secondary-color), inset 0px -4px 0px #2A641C, 0px 0px 10px rgba(0, 0, 0, 0.25);
     text-align: center;
     cursor: pointer;
@@ -107,16 +112,16 @@ body {
     display: inline-block;
 }
 
-.btn-play:hover{
-  background-color: #4FAF33;
-  box-shadow: inset 0px 4px 0px #6BDF48, inset 0px -4px 0px #367723, 0px 0px 15px rgba(82, 165, 53, 0.6);
-  transform: scale(1.03);
+.btn-play:hover {
+    background-color: #4FAF33;
+    box-shadow: inset 0px 4px 0px #6BDF48, inset 0px -4px 0px #367723, 0px 0px 15px rgba(82, 165, 53, 0.6);
+    transform: scale(1.03);
 }
 
 .btn-style:hover {
-  background-color: #367723; 
-  box-shadow: inset 0px 2px 0px #245316, inset 0px -2px 0px #52A535, 0px 0px 12px rgba(0, 0, 0, 0.4);
-  transform: translateY(1px); 
+    background-color: #367723;
+    box-shadow: inset 0px 1px 0px #245316, inset 0px -2px 0px #52A535, 0px 0px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(1px);
 }
 
 .btn-button:hover {
@@ -200,7 +205,7 @@ input::-webkit-outer-spin-button {
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
@@ -212,23 +217,47 @@ input::-webkit-outer-spin-button {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
 
 @keyframes popupZoomIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 @keyframes popupZoomOut {
-    from { transform: scale(1); opacity: 1; }
-    to { transform: scale(0.9); opacity: 0; }
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0.9);
+        opacity: 0;
+    }
 }
 
 #conteudo.blur {
