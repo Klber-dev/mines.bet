@@ -87,8 +87,15 @@ foreach ($usuarios as $usuario) {
                     if (!empty($usuario_atual['historico'])) {
                         foreach ($usuario_atual['historico'] as $item) {
                             $cor = '';
-                            if (stripos($item, 'deposito') !== false) $cor = 'green';
-                            elseif (stripos($item, 'sacou') !== false) $cor = 'red';
+                            if (stripos($item, 'deposito') !== false) {
+                                $cor = 'green';
+                            } elseif (stripos($item, 'sacou') !== false) {
+                                $cor = 'cyan';
+                            } elseif (stripos($item, 'ganhou') !== false) {
+                                $cor = 'gold'; // dourado para vitória
+                            } elseif (stripos($item, 'perdeu') !== false) {
+                                $cor = 'red'; // roxo para derrota
+                            }
                             echo '<li style="color:' . $cor . ';">' . htmlspecialchars($item) . '</li>';
                         }
                     } else {
