@@ -8,13 +8,18 @@
     --cell-hover: #444;
     --bomba: #e74c3c;
     --diamante: #27ae60;
+    --text: #fff;
 }
 
 body {
-    background: #000;
-    color: white;
+    background: #1e1e1e;
+    color: var(--text);
     font-family: 'Minecraft', sans-serif;
     text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .header-container {
@@ -22,76 +27,328 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 15px 30px;
-    background-color: var(--gray-bg);
+    background-color: #1d1b1a;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .logo img {
     width: 120px;
+    transition: transform 0.2s;
 }
 
-.aposta {
-    margin-top: 30px;
+.logo img:hover {
+    transform: scale(1.05);
 }
 
-.input-style,
-.btn-button {
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-}
-
-.btn-button {
-    background-color: var(--secondary);
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-button:hover {
-    background-color: var(--primary);
-}
-
-.campo {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: 10px;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.celula {
-    width: 100px;
-    height: 100px;
-    background: var(--cell-bg);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.celula:hover {
-    background: var(--cell-hover);
-}
-
-.celula.bomba {
-    background: var(--bomba);
-}
-
-.celula.diamante {
-    background: var(--diamante);
-}
-
-#multiplicador {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #2ecc71;
-    margin-top: 10px;
+.btn-style,
+.btn-alt {
+    padding: 10px 20px;
     text-align: center;
-    transition: transform 0.2s ease;
+    color: #FFFFFF;
+    border: 3px solid #131111;
+    box-shadow: inset 0px 4px 0px, 0px 0px 10px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    font-family: var(--font-secondary);
+    transition: all 0.2s ease-in-out;
 }
 
-#multiplicador.updated {
-    transform: scale(1.1);
-    color: #f1c40f;
+.btn-style {
+    background-color: var(--primary-color);
+    box-shadow: inset 0px 4px 0px var(--secondary-color), 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
+
+.btn-style:hover {
+    background-color: #367723;
+    box-shadow: inset 0px 2px 0px #245316, inset 0px -2px 0px #52A535, 0px 0px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(1px);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: 1fr auto;
+    gap: 20px;
+    width: 90%;
+    height: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+}
+
+.side-bar {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    background-color: #262423;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+    border: 3px solid #131111;
+    box-shadow: inset 4px 4px 0px #3a3735;
+    border-radius: 10px;
+
+}
+
+
+.side-bar p {
+    font-size: 1rem;
+    color: #bfb9b7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lance {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #1b1a19;
+    padding: 15px;
+    border-radius: 8px;
+
+}
+
+.lance p {
+    font-size: 1rem;
+    color: var(--secondary);
+}
+
+.lance input {
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+    margin-top: 12px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #2b2b2b;
+    border: 2px solid #3a3735;
+    text-align: center;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+.lance input:focus {
+    border: 1px solid var(--secondary);
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid var(--secondary);
+}
+
+.bomb-slider {
+    margin-top: 10px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+
+}
+
+.bomb-slider p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    color: #d0cbc9;
+}
+
+#valor-bombas,
+#mult {
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+.bomb-slider input[type="range"] {
+    width: 100%;
+    appearance: none;
+    height: 8px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background: #333;
+    border-radius: 5px;
+    outline: none;
+}
+
+.bomb-slider input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--secondary);
+    cursor: pointer;
+    transition: 0.2s;
+    border: 2px solid #1e1e1e;
+    box-shadow: 0 0 5px #52a535aa;
+}
+
+.bomb-slider input[type="range"]::-webkit-slider-thumb:hover {
+    background: #63c04a;
+    transform: scale(1.1);
+}
+
+.side-bar .btn-style {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1rem;
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.side-bar .btn-style:hover {
+    background-color: #63c04a;
+    transform: translateY(1px);
+    box-shadow: 0 0 12px #52a53588;
+}
+
+.campo-minado {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1d1d1d;
+    border-radius: 12px;
+    box-shadow: inset 0 0 10px #00000055;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.cell {
+    background-color: var(--cell-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #00000055;
+    transition: background 0.2s, transform 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.cell:hover {
+    background-color: var(--cell-hover);
+    transform: scale(1.05);
+}
+
+.saldo {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background-color: #262423;
+    border: 3px solid #131111;
+    box-shadow: inset 0px 4px 0px #3a3735;
+    padding: 30px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.saldo h2 {
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+#saldo {
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.btn-action {
+    background-color: #333;
+    border: 2px solid #000;
+    color: #FFFFFF;
+    font-family: var(--font-secondary);
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-action:hover {
+    background-color: #444;
+    box-shadow: inset 0px 2px 0px #333, inset 0px -2px 0px #444, 0px 0px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(1px);
+}
+
+.overlay-resultado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.overlay-resultado.vitoria {
+    background-color: rgba(39, 174, 96, 0.8);
+}
+
+.overlay-resultado.derrota {
+    background-color: rgba(231, 76, 60, 0.8);
+}
+
+.overlay-resultado.show {
+    opacity: 1;
+}
+
+.overlay-resultado.hidden {
+    display: none;
+}
+
+.cell.diamante {
+    background-color: var(--diamante);
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(39, 174, 96, 0.35);
+    transform: scale(1.05);
+    transition: background-color 0.18s, transform 0.12s, box-shadow 0.18s;
+}
+
+.cell.bomba {
+    background-color: var(--bomba);
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(231, 76, 60, 0.35);
+    transform: scale(1.05);
+    transition: background-color 0.18s, transform 0.12s, box-shadow 0.18s;
+}
+
+.campo-minado.ativo {
+    border: 3px solid #52a535;
+    transition: all 0.3s ease;
+}
+
