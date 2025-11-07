@@ -1,3 +1,19 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: index.php');
+    exit;
+}
+$usuarios = json_decode(file_get_contents('usuarios.json'), true);
+$usuario = null;
+foreach ($usuarios as $u) {
+    if ($u['id'] == $_SESSION['usuario_id']) {
+        $usuario = $u;
+        break;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,10 +41,14 @@
       </div>
 
       <div style="text-align:center; margin-top:20px;">
-        <button id="Sortear">Girar</button>
+        <button name="action" value="jogar" id="Sortear">Girar</button>
       </div>
       <p id="mensagem"></p>
     </div>
+  </div>
+  <div style="text-align:center; margin-top:20px; background-color:aqua;">
+        <input type="number" id="valorAposta" placeholder="Valor da aposta">
+        <p>Saldo: R$ <span id="saldo"><?php echo number_format($usuario['saldo'], 2, ',', '.'); ?></span></p>
   </div>
 </body>
 </html>
