@@ -7,8 +7,19 @@ window.onload = function() {
   const simbolos = ["💎", "🥮", "🍒", "🍇", "🔔"];
 
   botao.onclick = function() {
+    const valorAposta = parseFloat(document.getElementById('valorAposta').value) || 0;
+    const saldoAtual = parseFloat(document.getElementById('saldo').textContent.replace(/\./g,'').replace(',','.')) || 0;
+    if (valorAposta <= 0) {
+      alert("Digite um valor válido.");
+      return;
+    }
+    if (valorAposta > saldoAtual) {
+      alert("Saldo insuficiente.");
+      return;
+    }
+
     botao.disabled = true;
-    msg.textContent = "Girando";
+    msg.textContent = "Rodando e Girando Maôi"
 
     const animacao = setInterval(() => {
       slot1.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
@@ -37,3 +48,22 @@ window.onload = function() {
     }, 1500);
   };
 };
+
+function atualizarSaldo(resultado, valor, multiplicador = 1) {
+  let body = `action=jogo&resultado=${resultado}&valor=${valor}`;
+  if (resultado === 'win') {
+    body += `&multiplicador=${multiplicador}`;
+  }
+  fetch('saldo.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: body
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.sucesso) {
+      document.getElementById('saldo').textContent =
+        data.novoSaldo.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    }
+  });
+}
