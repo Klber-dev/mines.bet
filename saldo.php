@@ -110,4 +110,4 @@ if ($action === 'jogo') {
     header('Location: perfil.php?erro=4');
 }
 
-//Se vc n entender bulhufas pergunta pro oráculo
+//Se vc n entender bulhufas pergunta pro oráculo, oraculo sabe mto pqp

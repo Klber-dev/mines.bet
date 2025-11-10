@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "id": 675094,
+        "cpf": "53696890839",
+        "password": "81dc9bdb52d04dc20036dbd8313ed055",
+        "saldo": 10,
+        "historico": [
+            "Depositou R$10,00"
+        ]
+    }
+]

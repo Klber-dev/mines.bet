@@ -5,21 +5,24 @@ window.onload = function() {
   const slot3 = document.getElementById("slot3");
   const msg = document.getElementById("mensagem");
   const simbolos = ["💎", "🥮", "🍒", "🍇", "🔔"];
+  const saldoSpan = document.getElementById("saldo");
+  const inputAposta = document.getElementById("valorAposta");
 
   botao.onclick = function() {
-    const valorAposta = parseFloat(document.getElementById('valorAposta').value) || 0;
-    const saldoAtual = parseFloat(document.getElementById('saldo').textContent.replace(/\./g,'').replace(',','.')) || 0;
-    if (valorAposta <= 0) {
-      alert("Digite um valor válido.");
+    const aposta = parseFloat(inputAposta.value);
+    const saldoAtual = parseFloat(saldoSpan.textContent.replace(/\./g, '').replace(',', '.'));
+
+    if (isNaN(aposta) || aposta <= 0) {
+      alert("Digite um valor de aposta válido.");
       return;
     }
-    if (valorAposta > saldoAtual) {
-      alert("Saldo insuficiente.");
+    if (aposta > saldoAtual) {
+      alert("Saldo insuficiente!");
       return;
     }
 
     botao.disabled = true;
-    msg.textContent = "Rodando e Girando Maôi"
+    msg.textContent = "Girando e Rodando Maôi";
 
     const animacao = setInterval(() => {
       slot1.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
@@ -37,33 +40,55 @@ window.onload = function() {
           slot2.textContent = resultado[1];
           slot3.textContent = resultado[2];
 
-          if (resultado[0] === resultado[1] && resultado[1] === resultado[2]) {
-            msg.textContent = "JACKPOT! Você ganhou!";
+          const multiplicador = calcularMultiplicador(resultado);
+          let resultadoFinal = "lose";
+
+          if (multiplicador > 0) {
+            resultadoFinal = "win";
+            msg.textContent = `Você ganhou! x${multiplicador}`;
           } else {
             msg.textContent = "Tente novamente!";
           }
 
+          atualizarSaldo(resultadoFinal, aposta, multiplicador);
+        })
+        .catch(() => {
+          msg.textContent = "Erro ao sortear!";
           botao.disabled = false;
         });
     }, 1500);
   };
-};
 
-function atualizarSaldo(resultado, valor, multiplicador = 1) {
-  let body = `action=jogo&resultado=${resultado}&valor=${valor}`;
-  if (resultado === 'win') {
-    body += `&multiplicador=${multiplicador}`;
+  function calcularMultiplicador(resultado) {
+    if (resultado[0] === resultado[1] && resultado[1] === resultado[2]) return 3;
+    if (
+      resultado[0] === resultado[1] ||
+      resultado[0] === resultado[2] ||
+      resultado[1] === resultado[2]
+    ) return 1.5;
+    return 0;
   }
-  fetch('saldo.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: body
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.sucesso) {
-      document.getElementById('saldo').textContent =
-        data.novoSaldo.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-    }
-  });
-}
+
+  function atualizarSaldo(resultado, valor, multiplicador = 1) {
+    const body = `action=jogo&valor=${valor}&resultado=${resultado}&multiplicador=${multiplicador}`;
+    fetch("saldo.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: body
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.sucesso) {
+          saldoSpan.textContent = data.novoSaldo
+            .toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        } else {
+          alert("Erro: " + (data.erro || "desconhecido"));
+        }
+        botao.disabled = false;
+      })
+      .catch(() => {
+        alert("Erro ao atualizar saldo.");
+        botao.disabled = false;
+      });
+  }
+};
