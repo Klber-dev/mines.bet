@@ -30,8 +30,26 @@ if (!isset($_SESSION['usuario_id'])) {
     </header>
 
     <div class="jogos-container">
-        <a href="jackpot.php" class="jogo-link">Jackpot</a>
-        <a href="campo_minado.php" class="jogo-link">Campo Minado</a>
+        <div class="jogos-container">
+            <a href="campo_minado.php" class="jogo-card">
+                <div class="jogo-imagem" style="background-image: url('./assets/imagens/campo-banner.png');"></div>
+                <div class="jogo-info">
+                    <h3>Campo Minado</h3>
+                    <p>Evite as minas, ajuste a dificuldade e vença</p>
+                </div>
+                
+                <a href="jackpot.php" class="jogo-card">
+                    <div class="jogo-imagem" style="background-image: url('./assets/imagens/jackpot_banner.png');"></div>
+                    <div class="jogo-info">
+                        <h3>Jackpot</h3>
+                        <p>Tente a sorte e dobre seu saldo no modo roleta</p>
+                    </div>
+                </a>
+
+
+            </a>
+        </div>
+
     </div>
 
 </body>

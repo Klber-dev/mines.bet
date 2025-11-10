@@ -4,7 +4,9 @@ session_start();
 $arquivo = 'usuarios.json';
 $usuarios = file_exists($arquivo) ? json_decode(file_get_contents($arquivo), true) : [];
 
-$valor = floatval($_POST['valor'] ?? 0);
+$valor = $_POST['valor'] ?? 0;
+$valor = str_replace(',', '.', $valor);
+$valor = floatval($valor);
 $action = $_POST['action'] ?? "";
 $usuario_id = $_SESSION['usuario_id'] ?? null;
 
@@ -107,3 +109,5 @@ if ($action === 'jogo') {
 } else {
     header('Location: perfil.php?erro=4');
 }
+
+//Se vc n entender bulhufas pergunta pro oráculo

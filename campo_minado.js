@@ -11,7 +11,7 @@ let bombas = 3;
 range.addEventListener('input', () => {
     valorBombas.textContent = range.value;
     bombas = parseInt(range.value);
-    const multiplicador = (3 / bombas) * 1.9;
+    const multiplicador = (3 / bombas) * 40;
     multiplicadorTexto.textContent = 'x' + multiplicador.toFixed(2);
 });
 
@@ -33,7 +33,7 @@ function mostrarResultado(tipo) {
     setTimeout(() => {
         overlay.classList.remove('show');
         setTimeout(() => overlay.classList.add('hidden'), 400);
-    }, 2500);
+    }, 1000);
 }
 
 btnApostar.addEventListener('click', async (event) => {
@@ -61,7 +61,7 @@ btnApostar.addEventListener('click', async (event) => {
         jogoAtivo = true;
         acertos = 0;
         bombas = qtdBombas;
-
+        
         const cells = document.querySelectorAll('.cell');
         cells.forEach(cell => {
             cell.classList.remove('bomba', 'diamante');
@@ -104,7 +104,7 @@ function atualizarSaldo(resultado) {
 
     fetch('saldo.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, // enviando dados em formato tradicional de form
         body: body
     })
     .then(res => res.json())
@@ -143,5 +143,5 @@ document.querySelectorAll('.cell').forEach((cell, index) => {
                 atualizarSaldo('win');
             }
         }
-    });
+    }); 
 });

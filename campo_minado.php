@@ -34,6 +34,7 @@ foreach ($usuarios as $u) {
             </a>
         </div>
         <div class="header-buttons">
+            <a href="jogos.php" class="btn-style" id="btn-perfil">Outros Jogos</a>
             <a href="perfil.php" class="btn-style" id="btn-perfil">Meu Perfil</a>
         </div>
     </header>
@@ -50,7 +51,7 @@ foreach ($usuarios as $u) {
                 <div class="bomb-slider">
                     <p>Quantidade de Bombas: <span id="valor-bombas">3</span></p>
                     <input type="range" min="3" max="8" value="3" id="rangeBombas" name="bombas">
-                    <p>Multiplicador: <span id="multiplicador">x1.00</span></p>
+                    <p>Multiplicador: <span id="multiplicador">x40</span></p>
                 </div>
 
                 <div class="acoes">

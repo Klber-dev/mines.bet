@@ -3,64 +3,114 @@
 :root {
     --primary-color: #2A641C;
     --secondary-color: #52A535;
-    --font-color: #333333;
-    --background-color: #FFFFFF;
-    --background-cinza: #262423;
+    --background-dark: #1e1e1e;
+    --panel-color: #262423;
+    --border-color: #131111;
+    --highlight-light: #3b3a37; /* brilho lateral */
     --font-primary: 'Minecrafter';
     --font-secondary: 'Minecraft';
 }
 
 body {
     height: 100vh;
+    background-color: var(--background-dark);
     font-family: var(--font-secondary);
     color: white;
+    display: flex;
+    flex-direction: column;
+}
 
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--panel-color);
+    padding: 15px 30px;
 }
 
 .logo img {
     width: 120px;
-    max-width: 100%;
+    transition: transform 0.2s;
 }
 
 .logo img:hover {
     transform: scale(1.05);
 }
 
-
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-width: 100%;
-    background-color: var(--background-cinza);
-    padding: 15px 30px;
-    flex-wrap: wrap;
-}
-
 .jogos-container {
-    max-width: 90%;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.jogo-card {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    text-align: center;
-    margin: 50px auto;
-    padding: 0 10px;
-    color: #000;
-    
-}
-
-.jogo-link {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: white;
+    background-color: var(--panel-color);
+    border: 3px solid var(--border-color);
+    position: relative;
+    transition: all 0.2s ease;
     text-decoration: none;
-    font-size: 20px;
-    padding: 20px 40px;
-    border-radius: 10px;
-    margin: 10px;
-    transition: 0.3s;
+    color: white;
+
+    box-shadow:
+        -2px -2px 0 var(--highlight-light), 
+         2px  2px 0 #0f0f0f; 
 }
 
+.jogo-card:hover {
+    transform: translateY(-10px);
+    box-shadow:
+        -2px -2px 0 var(--secondary-color),
+         2px  2px 0 #000;
+}
 
+.jogo-imagem {
+    width: 100%;
+    height: 180px;
+    background-position: center;
+    border-bottom: 3px solid var(--border-color);
+}
+
+.jogo-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.jogo-info h3 {
+    font-family: var(--font-primary);
+    font-size: 20px;
+    color: gold;
+    margin-bottom: 8px;
+}
+
+.jogo-info p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.btn-style  {
+    padding: 10px 20px;
+    text-align: center;
+    color: #FFFFFF;
+    border: 3px solid #131111;
+    box-shadow: inset 0px 4px 0px, 0px 0px 10px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    font-family: var(--font-secondary);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-style {
+    background-color: var(--primary-color);
+    box-shadow: inset 0px 4px 0px var(--secondary-color), 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.btn-style:hover {
+    background-color: #367723;
+    box-shadow: inset 0px 2px 0px #245316, inset 0px -2px 0px #52A535, 0px 0px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(1px);
+}
