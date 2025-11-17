@@ -20,3 +20,6 @@ for ($i = 0; $i < $bombas; $i++) {
 
 header('Content-Type: application/json');
 echo json_encode(['matriz' => $matriz]);
+
+
+/* Gays amam Pau marca = GAP */
