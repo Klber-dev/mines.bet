@@ -24,31 +24,52 @@ foreach ($usuarios as $u) {
   <script src="jackpot.js" defer></script>
 </head>
 <body>
-  <div class="crafting-container">
-    <h1>CraftingLucky</h1>
 
-    <div class="crafting-border">
-      <div class="crafting-grid">
-        <div class="slot"></div>
-        <div class="slot"></div>
-        <div class="slot"></div>
-        <div class="slot" id="slot1">❔</div>
-        <div class="slot" id="slot2">❔</div>
-        <div class="slot" id="slot3">❔</div>
-        <div class="slot"></div>
-        <div class="slot"></div>
-        <div class="slot"></div>
-      </div>
-
-      <div style="text-align:center; margin-top:20px;">
-        <button name="action" value="jogar" id="Sortear">Girar</button>
-      </div>
-      <p id="mensagem"></p>
+<!-- HEADER -->
+<header class="header-container">
+    <div class="logo">
+        <a href="index.php">
+            <img src="./assets/imagens/logo_minecraft.png" alt="Logo Mine">
+        </a>
     </div>
-  </div>
-  <div style="text-align:center; margin-top:20px; background-color:aqua;">
-        <input type="number" id="valorAposta" placeholder="Valor da aposta">
-        <p>Saldo: R$ <span id="saldo"><?php echo number_format($usuario['saldo'], 2, ',', '.'); ?></span></p>
-  </div>
+    <div class="header-buttons">
+        <a href="jogos.php" class="btn-style">Outros Jogos</a>
+        <a href="perfil.php" class="btn-style">Meu Perfil</a>
+    </div>
+</header>
+
+<!-- PAINEL DE APOSTA -->
+<div class="aposta-container">
+    <p>Aposta:</p>
+    <input type="number" id="valorAposta" placeholder="Valor da aposta" required>
+    <p>Saldo: R$ <span id="saldo"><?php echo number_format($usuario['saldo'], 2, ',', '.'); ?></span></p>
+</div>
+
+<!-- WRAPPER CENTRAL -->
+<div class="crafting-wrapper">
+    <div class="crafting-container">
+        <h1>CraftingLucky</h1>
+
+        <div class="crafting-border">
+            <div class="crafting-grid">
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot" id="slot1">❔</div>
+                <div class="slot" id="slot2">❔</div>
+                <div class="slot" id="slot3">❔</div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+                <div class="slot"></div>
+            </div>
+
+            <div style="text-align:center; margin-top:20px;">
+                <button id="Sortear">Girar</button>
+            </div>
+            <p id="mensagem"></p>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

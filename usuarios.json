@@ -3,9 +3,24 @@
         "id": 675094,
         "cpf": "53696890839",
         "password": "81dc9bdb52d04dc20036dbd8313ed055",
-        "saldo": 10,
+        "saldo": 0.6250000000000568,
         "historico": [
-            "Depositou R$10,00"
+            "Depositou R$10,00",
+            "Perdeu R$2,00",
+            "Perdeu R$5,00",
+            "Depositou R$0,10",
+            "Depositou R$90,00",
+            "Perdeu R$40,00",
+            "Ganhou R$60,00 (Aposta R$40,00 x1.50)",
+            "Ganhou R$60,00 (Aposta R$40,00 x1.50)",
+            "Perdeu R$40,00",
+            "Ganhou R$60,00 (Aposta R$40,00 x1.50)",
+            "Perdeu R$40,00",
+            "Perdeu R$40,00",
+            "Ganhou R$120,00 (Aposta R$40,00 x3.00)",
+            "Ganhou R$349,58 (Aposta R$233,05 x1.50)",
+            "Perdeu R$233,05",
+            "Perdeu R$349,00"
         ]
     }
 ]
